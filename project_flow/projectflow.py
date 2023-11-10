@@ -8,4 +8,4 @@ if __name__ == '__main__':
     Session = sessionmaker(bind=engine)
     Base.metadata.create_all(engine)
 
-    cli()  # Run your Click CLI
+    cli()

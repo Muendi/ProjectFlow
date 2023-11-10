@@ -2,7 +2,7 @@ import click
 from project_flow.models import User, Project, Task
 from datetime import datetime
 
-# Utility functions for input validation
+
 def validate_project_input(input_data):
     project_name = input_data.get("project_name")
     start_date = input_data.get("start_date")
@@ -50,10 +50,8 @@ def add_project():
     project_data = get_project_input()
     validated_data = validate_project_input(project_data)
 
-    # Database operation (replace with actual SQLAlchemy logic)
     new_project = Project(**validated_data)
 
-    # Print for demonstration purposes
     click.echo(f"Added project: {new_project.project_name}, Start Date: {new_project.start_date}, End Date: {new_project.end_date}")
 
 @cli.command()
@@ -63,10 +61,10 @@ def add_task():
     description = click.prompt("Enter task description", type=str)
     deadline_str = click.prompt("Enter task deadline (YYYY-MM-DD)", type=str)
 
-    # Database operation (replace with actual SQLAlchemy logic)
+
     new_task = Task(task_name=task_name, description=description, deadline=datetime.strptime(deadline_str, "%Y-%m-%d").date())
 
-    # Print for demonstration purposes
+   
     click.echo(f"Added task: {new_task.task_name}, Deadline: {new_task.deadline}")
 
 if __name__ == '__main__':
@@ -79,4 +77,4 @@ if __name__ == '__main__':
     Session = sessionmaker(bind=engine)
     Base.metadata.create_all(engine)
 
-    cli()  # Run your Click CLI
+    cli()

@@ -1,10 +1,7 @@
 
-# dbops.py
 from sqlalchemy.orm import sessionmaker
 from models import User, Project, Task, Base
 from sqlalchemy import create_engine
-
-
 
 
 engine = create_engine('sqlite:///project_flow.db')
